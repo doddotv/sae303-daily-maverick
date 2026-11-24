@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Britain is paying almost a fifth more for the same food</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- bandeau du haut avec le nom du journal -->
+    <header>
+        <p>Daily Maverick</p>
+        <p class="pays">South African newspaper</p>
+    </header>
+
+    <main>
+        <!-- titre de l'article -->
+        <p class="kicker">International - Analysis</p>
+        <h1>Britain is paying almost a fifth more for the same food</h1>
+        <p class="standfirst">British households spend almost 20% more on their food shopping than three years ago. But they do not buy more. Official data shows where the money went, and who feels it most.</p>
+
+        <!-- photo à la une -->
+        <figure>
+            <img src="images/photo-cliente-epicerie.jpg" alt="A woman in a grocery shop reading a piece of paper, with a basket of vegetables">
+            <!-- figcaption, c'est la légende d'une image ou d'un graphique, elle va dans figure.
+                 J'ai demandé à l'IA : "Comment on met une légende ou une source sous une image en HTML ?"
+                 Je m'en sers pour la légende de la photo et pour la source sous chaque graphique. -->
+            <figcaption>Checking every item before paying: the daily reality of British shoppers since 2022. Photo: Kampus Production / Pexels</figcaption>
+        </figure>
+
+        <!-- partie 1 : le chiffre principal -->
+        <section>
+            <p>From Soweto to Cape Town, many of us know the feeling: the trolley is the same, but the till slip is longer. In the United Kingdom, families have been living the same story since 2022, with what the British call the "cost-of-living crisis".</p>
+            <p>The UK government's <em>Family Food</em> survey asks around 5,000 households to write down everything they buy. It shows that the average person spent <strong>£28.23 a week</strong> on food and soft drinks for the home in 2021/22. In 2024/25, it was <strong>£33.63</strong>: an increase of <strong>19.1%</strong> in three years.</p>
+            <p>But when inflation is removed, spending is almost the same: <strong>+0.5%</strong> only, according to the government's real-terms figures. British families are paying more, not eating more.</p>
+        </section>
+
+        <!-- partie 2 : les aliments -->
+        <section>
+            <h2>Where the money went</h2>
+            <p>The chart below shows how much an average person spends each week on 14 food groups. 2024/25 is the most recent year in the official data, so every bar compares it with a starting year that you choose. Pick 2019/20 to see the change since before Covid, or 2021/22 to see the change since prices went up. You can also switch between percent and pence, and click on a bar to read the figures.</p>
+
+            <!-- le graphique Chart.js avec le menu et le bouton (niveaux 1 et 2) -->
+            <!-- J'ai demandé de l'aide à l'IA pour savoir comment présenter mon graphique.
+                 Je lui ai demandé : "Quelle balise HTML utiliser pour mettre un graphique
+                 avec son titre, son sous-titre et sa source ?"
+                 Elle m'a conseillé figure : ça regroupe le graphique et tout ce qui l'explique. -->
+            <figure class="visual">
+                <h3>Eggs saw the biggest rise in the British food basket</h3>
+                <p class="subtitle">Change in average spending per person per week on food for the home, UK, between the starting year and 2024/25 (latest data). In red: the four biggest rises.</p>
+
+                <div class="controls">
+                    <label for="year">Starting year:</label>
+                    <select id="year">
+                        <option value="2015/16">2015/16</option>
+                        <option value="2019/20">2019/20 (before Covid)</option>
+                        <option value="2021/22" selected>2021/22 (before prices went up)</option>
+                        <option value="2023/24">2023/24 (one year before)</option>
+                    </select>
+                    <button id="unit" type="button">Show pence per week</button>
+                </div>
+
+                <div class="chart-box">
+                    <canvas id="myChart" role="img" aria-label="Bar chart of weekly food spending per person in the UK by food group"></canvas>
+                </div>
+
+                <p id="info">Click on a bar to see the details.</p>
+                <figcaption>Source: Defra, Family Food FYE 2025, UK expenditure dataset. The chart shows spending, not quantities.</figcaption>
+            </figure>
+
+            <p><strong>Eggs</strong> are the clearest example: spending went from 31p to 53p a week per person between 2021/22 and 2024/25 (+73%). <strong>Fats and oils</strong> (+36%), <strong>potatoes</strong> (+29%) and <strong>fresh meat</strong> (+28%) come next. On the other side, spending on <strong>fish</strong> only rose by 7%, much less than the average of 19%. Compared with 2015/16, families spend 86% more on eggs. Compared with 2023/24, the rise has slowed down: spending on soft drinks even fell by 4%. Official inflation figures say the same thing: in September 2026, food prices in the UK were rising by 1.3% a year, the slowest pace since 2021.</p>
+        </section>
+
+        <!-- partie 3 : les restaurants, avec la dataviz fixe -->
+        <section>
+            <h2>Restaurants have not recovered</h2>
+            <p>Covid changed the way the British eat. In 2019/20, the average person spent £11.75 a week on food and soft drinks outside the home: restaurants, takeaways, canteens. During the lockdowns of 2020/21, it fell to £2.70, a drop of 77%. The chart below shows this collapse and the slow recovery since.</p>
+
+            <figure>
+                <img src="images/dataviz-fixe-restaurants.png" alt="Line chart: weekly spending per person on eating out in the UK, from £9.82 in 2015/16 to £11.75 in 2019/20, £2.70 in 2020/21 and £9.87 in 2024/25.">
+                <figcaption>Source: Defra, Family Food FYE 2025. The 2020/21 figures were collected during lockdowns.</figcaption>
+            </figure>
+
+            <p>Since then, it has gone up every year, to £9.87 in 2024/25. But even without counting inflation, it is still 16% lower than before Covid. For many families, eating out is one of the first things to go.</p>
+        </section>
+
+        <!-- partie 4 : les inégalités -->
+        <section>
+            <h2>Not everyone is squeezed in the same way</h2>
+            <p>In 2024/25, food took 10.9% of the average household's spending, but 15.2% for the poorest 20% of households. The poorest 10% spent £27.91 a week per person on food for the home, against £40.55 for the richest 10%. For eating out, the gap is even bigger: £5.19 against £16.99.</p>
+            <p>In South Africa, many families buy their daily food at the <strong>spaza</strong>, the small corner shop of the townships. Food prices are rising more slowly there too this year (1.6% in June 2026, according to Stats SA), but whether you shop at a spaza in Soweto or a supermarket in London, a rising food bill hits the smallest budgets first.</p>
+        </section>
+
+        <!-- partie 5 : conclusion -->
+        <section>
+            <h2>What it tells us</h2>
+            <p>The British basket has not really changed, but it costs almost a fifth more. Basic products like eggs, fats and potatoes are behind the rise, restaurants are still below their pre-Covid level, and the poorest families spend a bigger part of their money on food. For South African readers, the story sounds familiar: food inflation is also a question of inequality.</p>
+        </section>
+
+        <!-- sources des données -->
+        <section class="sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://www.gov.uk/government/statistical-data-sets/family-food-datasets">Family food datasets</a> (Defra, FYE 2025): UK expenditure and income decile datasets.</li>
+                <li><a href="https://www.gov.uk/government/statistics/family-food-fye-2025/family-food-fye-2025">Family Food FYE 2025 report</a> (Defra): real-terms figures and share of spending on food.</li>
+                <li><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/september2026">Consumer price inflation, UK: September 2026</a> (Office for National Statistics): food price inflation in the UK.</li>
+                <li><a href="https://www.statssa.gov.za/?p=19757">Inflation rises to a two-year high</a> (Statistics South Africa): food inflation in South Africa, June 2026.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- pied de page -->
+    <footer>
+        <p>Student project by Dorian Extier (BUT MMI). Not published by Daily Maverick.</p>
+    </footer>
+
+    <!-- Chart.js vient d'Internet, puis mon script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
