@@ -146,3 +146,16 @@ footer {
     font-size: 13px;
     padding: 25px 20px 10px;
 }
+
+/* En testant sur mon téléphone, j'ai vu que le menu et le bouton étaient collés et mal alignés.
+   Alors sur les petits écrans (moins de 600px), je les mets l'un sous l'autre, sur toute la largeur,
+   pour que ce soit plus propre et plus facile à toucher avec le doigt. */
+@media (max-width: 600px) {
+    .controls label,
+    .controls select,
+    .controls button {
+        display: block;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}
